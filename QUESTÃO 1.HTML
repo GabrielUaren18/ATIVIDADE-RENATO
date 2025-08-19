@@ -1,0 +1,57 @@
+<script>
+
+/*1. Elaborar um programa que leia o nome e a idade de um atleta de um clube de natação. O
+programa deve exibir o nome com “-” abaixo das letras do nome a categoria do atleta, que pode
+ser “infantil” (até 12 anos), “juvenil” (entre 13 e 18 anos) ou “Adulto” (acima de 18 anos). o
+Programa deve conter as funções:
+a) retornarTracos( ) - que receba um nome como parâmetro e retorne uma linha com “-” para
+as letras do nome (nos espaços, manter os espaços).
+b) categorizarAluno( ) - que receba um número como parâmetro e retorne a categoria do
+aluno, conforme indicação no enunciado do exercício.*/
+
+
+
+function retornarTracos(nome) {
+  let tracos = "";
+  for (let i = 0; i < nome.length; i++) {
+    if (nome[i] === " ") {
+      tracos += " ";
+    } else {
+      tracos += "-";
+    }
+  }
+  return tracos;
+}
+
+function categorizarAluno(idade) {
+  if (idade <= 12) {
+    
+    return "Infantil";
+ 
+} else if (idade >= 13 && idade <= 18) {
+    
+    return "Juvenil";
+  
+} else {
+    return "Adulto";
+  }
+}
+
+function iniciarPrograma() {
+  
+    let nome = prompt("Digite o nome do atleta:");
+  
+  let idade = Number(prompt("Digite a idade do atleta:"));
+
+  let tracos = retornarTracos(nome);
+  
+  let categoria = categorizarAluno(idade);
+
+  let mensagem = nome + "\n" + tracos + "\nCategoria: " + categoria;
+  
+  alert(mensagem);
+
+}
+
+iniciarPrograma();
+</script>

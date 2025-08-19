@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Vacina Veterinária</title>
+  <script>
+
+/*3. Elaborar um programa para uma veterinária, o qual leia o preço de uma vacina e se o cliente
+possui ou não convênio. Caso possua algum convênio, exibir uma caixa de seleção com os
+convênios “Amigo dos Animais” e “Saúde Animal”. O programa deve exibir o valor do desconto
+(10% sem convênio; 20% para “Amigo dos animais”; 50% para “Saúde Animal”) e o valor a ser
+pago. Criar a função:
+a) calcularDesconto ( ) - que receba os parâmetros valor e taxa de desconto. Retornar o valor
+do desconto.*/
+
+
+    // a) Função que calcula o valor do desconto
+    function calcularDesconto(valor, taxaDesconto) {
+      return valor * (taxaDesconto / 100);
+    }
+
+    function iniciarPrograma() {
+      let preco = Number(prompt("Digite o preço da vacina:"));
+      let convenio = prompt("Possui convênio? (sim/não)");
+
+      let taxaDesconto = 0;
+
+      if (convenio.toLowerCase() === "não" || convenio.toLowerCase() === "nao") {
+        taxaDesconto = 10;
+      } else if (convenio.toLowerCase() === "sim") {
+        let opcao = prompt("Selecione o convênio:\n1 - Amigo dos Animais\n2 - Saúde Animal");
+
+        if (opcao === "1") {
+          taxaDesconto = 20;
+        } else if (opcao === "2") {
+          taxaDesconto = 50;
+        } else {
+          alert("Opção inválida! Será aplicado o desconto padrão de 10%.");
+          taxaDesconto = 10;
+        }
+      } else {
+        alert("Resposta inválida! Será aplicado o desconto padrão de 10%.");
+        taxaDesconto = 10;
+      }
+
+      // Calcula desconto e valor final
+      let desconto = calcularDesconto(preco, taxaDesconto);
+      let valorFinal = preco - desconto;
+
+      // Exibir resultado
+      alert(
+        "Preço da vacina: R$ " + preco.toFixed(2) +
+        "\nDesconto (" + taxaDesconto + "%): R$ " + desconto.toFixed(2) +
+        "\nValor a pagar: R$ " + valorFinal.toFixed(2)
+      );
+    }
+  </script>
+</head>
+<body onload="iniciarPrograma()">
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

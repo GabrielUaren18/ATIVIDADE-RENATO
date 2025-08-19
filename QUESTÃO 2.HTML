@@ -1,0 +1,64 @@
+<script>
+
+/*2. Elaborar um programa que leia o nome completo de um aluno. O programa deve validar o
+preenchimento de um nome completo e exibir a senha inicial do aluno, a qual será o sobrenome
+seguido pelo número de vogais do nome completo dele. O programa deve contar as funções:
+a) validarNome( ) - que receba um nome como parâmetro e retorne true (nome completo) ou
+false (nome incompleto).
+b) obterSobrenome( ) - que receba um nome como parâmetro e retorne o último nome do
+aluno em letras minúsculas.
+c) contarVogais( ) - que receba um nome e retorne o número de vogais deste, com dois
+dígitos.*/
+
+
+function validarNome(nome) {
+  let partes = nome.trim().split(" ");
+  return partes.length >= 2; 
+}
+
+function obterSobrenome(nome) {
+  let partes = nome.trim().split(" ");
+  return partes[partes.length - 1].toLowerCase();
+}
+
+
+function contarVogais(nome) {
+  let contador = 0;
+  let letras = nome.toLowerCase();
+
+  for (let i = 0; i < letras.length; i++) {
+    if ("aeiou".includes(letras[i])) {
+      contador++;
+    }
+  }
+
+  return contador.toString().padStart(2, "0"); 
+}
+
+
+let nome = prompt("Digite seu nome completo:");
+
+if (validarNome(nome)) {
+  let sobrenome = obterSobrenome(nome);
+  let qtdVogais = contarVogais(nome);
+  let senha = sobrenome + qtdVogais;
+
+  alert("Senha inicial do aluno: " + senha);
+} else {
+  
+  
+    alert("Nome inválido! Digite o nome completo.");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
